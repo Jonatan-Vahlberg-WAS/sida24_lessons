@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1 id="h1">Hej världen!</h1>
+    <p id="greeting"></p>
     <!-- kommentar -->
     <script>
         console.log("Hello world") // Loggar till consolen
@@ -39,7 +40,24 @@
         // 2. Skriv en variabel med ditt födelseår
         // 3. Skriv en variabel med din address och en med din postkod
         // 4. Skicka ut allt i consolen
+        // Extra lägg till om man är djurägare (boolean)
+
+        const firstName = "Jonatan"
+        const lastName = "Vahlberg"
+        const birthYear = 1996
+        const address = "Stockholms gatan 123"
+        const postalCode = 12345
+        const isPetOwner = false
+
+        const greeting = "Hej mitt namn är " + firstName + " " + lastName + " född " + birthYear + " jag bor på " + address
+
+        const greeting2 = `Hej mitt namn är ${firstName} ${lastName} född ${birthYear}`
+
+        const p = document.getElementById("greeting")
+        p.textContent = greeting2
         
+        console.log(greeting)
+
 
     </script>
 </body>
