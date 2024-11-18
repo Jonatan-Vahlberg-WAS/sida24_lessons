@@ -6,9 +6,11 @@
     <title>Lektion 1</title>
 </head>
 <body>
-    <h1 id="h1">Hej världen!</h1>
+    <h1 id="page-title">Hej världen!</h1>
     <p id="greeting"></p>
-    <!-- kommentar -->
+    <div id="user-card">
+        <!-- Lägg in data från JS -->
+    </div>
     <script>
         console.log("Hello world") // Loggar till consolen
         console.warn("Warning !!!") // Loggar en varning
@@ -20,7 +22,6 @@
         console.log(name)
         name = "Jonatan Vahlberg"
         console.log(name)
-
         // const - Constant kan inte ändras på
         const age = 27
         console.log(age)
@@ -49,14 +50,40 @@
         const postalCode = 12345
         const isPetOwner = false
 
-        const greeting = "Hej mitt namn är " + firstName + " " + lastName + " född " + birthYear + " jag bor på " + address
+        const greeting = "Hej mitt namn är " + firstName + " " + lastName + 
+            " född " + birthYear + 
+            " jag bor på " + address // String konkatinerar variabler och data
 
-        const greeting2 = `Hej mitt namn är ${firstName} ${lastName} född ${birthYear}`
-
-        const p = document.getElementById("greeting")
-        p.textContent = greeting2
-        
+        const greeting2 = `Hej mitt namn är ${firstName} ${lastName} född ${birthYear}` // Template string innehåller variabler
         console.log(greeting)
+
+        // DOM - Document object model
+
+        document.title = "Lektion 1 - Variabler & DOM" // Ändra på hemsidans titel
+        const pageTitle = document.getElementById("page-title") // Hämta vårt h1 element
+        pageTitle.textContent = document.title // Sätt h1 elementets text innehåll
+
+        // Uppgift 2: Lägg till ett <p> element i HTML med id greeting
+        // hitta elmementet med document.getElementById
+        // Ändra text till vår greeting eller greeting2
+        // Extra: ändra style.color till annan färg
+        const greetingText = document.getElementById("greeting")
+        greetingText.textContent = greeting2
+        greetingText.style.color = "purple"
+
+        // DOM - Skapa element
+        const userCard = document.getElementById("user-card") // Kort för att lägga in andra element
+        console.log(userCard)
+
+        const userName = document.createElement("h2") // skapar ett element i JS
+        // userName.textContent = firstName + " " + lastName 
+        userName.textContent = `Name: ${firstName} ${lastName}`
+
+        const userAge = document.createElement("p")
+        userAge.textContent = `Age: ${age}`
+
+        userCard.appendChild(userName) // Lägg till elementet i User card
+        userCard.appendChild(userAge)
 
 
     </script>
