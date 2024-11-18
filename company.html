@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Företagssida</title>
+</head>
+<body>
+    <div id="content">
+        <!-- Dynamiskt innehåll från JavaScript kommer att läggas här -->
+    </div>
+
+    <script>
+        // Variabler
+        const companyName = "Gröna Framtiden AB";
+        const foundedYear = 1995;
+        const headquarters = "Stockholm";
+        const isEcoFriendly = true;
+        const companyColor = "green";
+
+        // Logga information till konsolen
+        console.log(`Företag: ${companyName}`);
+        console.log(`Grundat år: ${foundedYear}`);
+        console.log(`Huvudkontor: ${headquarters}`);
+        console.log(`Miljövänligt: ${isEcoFriendly}`);
+        console.log(`Företagsfärg: ${companyColor}`);
+
+        // Hämta div för innehåll
+        const contentDiv = document.getElementById("content");
+
+        // Skapa och lägg till företagets namn (h1)
+        const header = document.createElement("h1");
+        header.textContent = companyName;
+        header.style.color = companyColor; // Använd företagets färg
+        contentDiv.appendChild(header);
+
+        // Skapa och lägg till företagets information (p)
+        const info = document.createElement("p");
+        info.textContent = `Företaget grundades år ${foundedYear} i ${headquarters}.`;
+        contentDiv.appendChild(info);
+
+        // Skapa och lägg till miljövänlighetsbeskrivning (p)
+        const ecoDescription = document.createElement("p");
+        if (isEcoFriendly) {
+            ecoDescription.textContent = "Vi är stolta över att vara ett miljövänligt företag.";
+        } else {
+            ecoDescription.textContent = "Vi arbetar aktivt mot en grönare framtid.";
+        }
+        contentDiv.appendChild(ecoDescription);
+
+        // Skapa och lägg till länk till företagets hemsida (a)
+        const link = document.createElement("a");
+        link.textContent = "Besök vår hemsida";
+        link.href = "https://example.com";
+        link.target = "_blank"; // Öppna länken i en ny flik
+        contentDiv.appendChild(link);
+    </script>
+</body>
+</html>

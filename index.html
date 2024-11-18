@@ -79,13 +79,18 @@
         // userName.textContent = firstName + " " + lastName 
         userName.textContent = `Name: ${firstName} ${lastName}`
 
+        const readMore = document.createElement("a")
+        readMore.textContent = " Read more"
+        readMore.href = "https://google.se"
+        userName.appendChild(readMore)
+
         const userAge = document.createElement("p")
         userAge.textContent = `Age: ${age}`
 
         userCard.appendChild(userName) // Lägg till elementet i User card
         userCard.appendChild(userAge)
 
-
+        //
     </script>
 </body>
 </html>
