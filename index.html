@@ -49,10 +49,15 @@
         const address = "Stockholms gatan 123"
         const postalCode = 12345
         const isPetOwner = false
+        let petStatus = ". Jag har inte husdjur"
+        if(isPetOwner === true) {
+            petStatus = ". Jag har husdjur"
+        }
 
         const greeting = "Hej mitt namn är " + firstName + " " + lastName + 
             " född " + birthYear + 
-            " jag bor på " + address // String konkatinerar variabler och data
+            " jag bor på " + address
+            + "" + petStatus // String konkatinerar variabler och data
 
         const greeting2 = `Hej mitt namn är ${firstName} ${lastName} född ${birthYear}` // Template string innehåller variabler
         console.log(greeting)
