@@ -1,0 +1,83 @@
+<!-- Denna HTML visar hur man löser Företagssidan med getEleementById -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Företagssida</title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- Dynamiskt innehåll från JavaScript kommer att läggas här -->
+      <h1 id="companyName"></h1>
+      <p id="companyDescription"></p>
+      <p id="companyEnviromentalStatus"></p>
+      <a id="companyWebsite"></a>
+    </div>
+
+    <script>
+      /*
+    1. Skapa variabler som representerar följande företagsinformation:
+    - Företagets namn
+    - Grundat år
+    - Stad där företaget har sitt huvudkontor
+    - En boolean som anger om företaget är miljövänligt
+    - En företagsfärg (t.ex. "blå" eller "grön")*/
+      const companyName = "ICA"; // Const för konstanter
+      const companyFoundedAt = 1917;
+      let companyCity = "Västerås"; // let används för förändliga värden
+      const companyIsEnviromental = true; // boolean är antingen sant eller falskt
+      const companyColor = "Red";
+      const companyWebsite = "https://ica.se";
+
+      //2 Använd console.log för att skriva ut denna information i webbläsarens konsol.
+      console.log("Name:", companyName);
+      console.log("Founded at:", companyFoundedAt);
+      console.log("City:", companyCity);
+      console.log("Is Enviromental:", companyIsEnviromental);
+      console.log("Color:", companyColor);
+
+      /*
+    1. Lägg till följande element i HTML via JavaScript:
+    - En `h1`rubrik som innehåller företagets namn.
+    - En `p`paragraf som beskriver företagets grundande år och huvudkontor (t.ex. "Företaget grundades år 1995 i Stockholm.").
+    - **Överkurs:** Om företaget är miljövänligt, lägg till en `p`paragraf som säger "Vi är stolta över att vara ett miljövänligt företag." Annars, skriv "Vi arbetar aktivt mot en grönare framtid."
+    */
+      const companyNameTag = document.getElementById("companyName"); // Document.getElementById hämtar en referens till elementet
+      companyNameTag.textContent = companyName;
+      companyNameTag.style.color = companyColor;
+
+      const companyDescriptionTag =
+        document.getElementById("companyDescription");
+      companyDescriptionTag.textContent = `Företaget grundades år ${companyFoundedAt} i ${companyCity}.`;
+
+      const companyEnviromentalStatusTag = document.getElementById(
+        "companyEnviromentalStatus"
+      );
+      // if & else - Antingen eller
+      // If sker om "statement" är sant
+      // Else sker om "statement" inte är sant / Else sker om "statement" är falskt
+      if (companyIsEnviromental === true) {
+        console.log("company is enviromental");
+        companyEnviromentalStatusTag.textContent =
+          "Vi är stolta över att vara ett miljövänligt företag.";
+      } else {
+        console.log("company is not enviromental");
+        companyEnviromentalStatusTag.textContent =
+          "Vi arbetar aktivt mot en grönare framtid.";
+      }
+
+      if (companyFoundedAt < 2000) {
+        console.log("Företaget grundades innan år 2000");
+      } else {
+        console.log("Företaget grundades efter eller under år 2000");
+      }
+
+      const companyWebsiteTag = document.getElementById("companyWebsite");
+      companyWebsiteTag.href = companyWebsite;
+      companyWebsiteTag.textContent = "Besök vårt företag på vår hemsida.";
+      companyWebsiteTag.target = "_blank";
+    </script>
+  </body>
+</html>
