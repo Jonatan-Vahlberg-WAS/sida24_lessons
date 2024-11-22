@@ -171,5 +171,57 @@ console.log(" Kan köra hem 2: ", {
     canDriveHome
 })
 
-//! Kort ingång i Object
+// Kontrollera användarnamn
 
+const storedUsername = "admin123"
+const enteredUsername = "Admin123"
+
+const usernameMatches = storedUsername === enteredUsername
+console.log("usernameMatches", usernameMatches)
+
+const usernameMatchesIgnoreCase =
+    storedUsername.toLowerCase() ===
+    enteredUsername.toLowerCase()
+console.log("usernameMatchesIgnoreCase", usernameMatchesIgnoreCase)
+
+// Är användare berrätigad till rabatt
+const customerAge = 18
+const isEligableForDiscount =
+    customerAge > 65 ||
+    customerAge < 18
+
+console.log("customerAge", customerAge)
+console.log("isEligableForDiscount", isEligableForDiscount)
+
+
+// Kan bilen starta
+const batteryLevel = 5
+const isElectricCar = true
+
+const lowerBatteryThreshold = 5
+
+const canCarRun =
+    isElectricCar === true &&
+    batteryLevel >= 5
+
+console.log(batteryLevel, isElectricCar, lowerBatteryThreshold)
+console.log("canCarRun", canCarRun)
+
+// Lösenord längd check
+const password = "password "
+const passwordLength = password.length
+const passwordMinLength = 5
+const passwordMaxLength = 15
+
+if(passwordLength < passwordMinLength){
+    console.log("Password to short")
+}
+else if(passwordLength > passwordMaxLength) {
+    console.log("Password to long")
+}
+else if(password.includes(" ")){
+    console.log("Password cant contain a space")
+}
+else {
+    console.log("Password just right")
+}

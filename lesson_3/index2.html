@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript User Input Validation</title>
+    <script>
+        function validateInputs() {
+            console.clear()
+            // Get user inputs
+            const enteredUsername = document.getElementById("username").value;
+            const customerAge = parseInt(document.getElementById("age").value);
+            const batteryLevel = parseInt(document.getElementById("batteryLevel").value);
+            const password = document.getElementById("password").value;
+
+            // Kontrollera användarnamn
+            const storedUsername = "admin123";
+            const usernameMatches = storedUsername === enteredUsername;
+            console.log("usernameMatches", usernameMatches);
+
+            const usernameMatchesIgnoreCase = storedUsername.toLowerCase() === enteredUsername.toLowerCase();
+            console.log("usernameMatchesIgnoreCase", usernameMatchesIgnoreCase);
+
+            // Är användare berrätigad till rabatt
+            const isEligableForDiscount = customerAge > 65 || customerAge < 18;
+            console.log("customerAge", customerAge);
+            console.log("isEligableForDiscount", isEligableForDiscount);
+
+            // Kan bilen starta
+            const isElectricCar = true;
+            const lowerBatteryThreshold = 5;
+            const canCarRun = isElectricCar === true && batteryLevel >= lowerBatteryThreshold;
+            console.log(batteryLevel, isElectricCar, lowerBatteryThreshold);
+            console.log("canCarRun", canCarRun);
+
+            // Lösenord längd check
+            const passwordLength = password.length;
+            const passwordMinLength = 5;
+            const passwordMaxLength = 15;
+
+            if(passwordLength < passwordMinLength) {
+                console.log("Password too short");
+            } else if(passwordLength > passwordMaxLength) {
+                console.log("Password too long");
+            } else if(password.includes(" ")) {
+                console.log("Password can't contain a space");
+            } else {
+                console.log("Password just right");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h2>JavaScript User Input Validation</h2>
+
+    <label for="username">Enter Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+
+    <label for="age">Enter Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+
+    <label for="batteryLevel">Enter Battery Level (for Electric Car):</label>
+    <input type="number" id="batteryLevel" name="batteryLevel"><br><br>
+
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <button onclick="validateInputs()">Validate Inputs</button>
+
+</body>
+</html>
