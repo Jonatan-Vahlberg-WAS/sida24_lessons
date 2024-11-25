@@ -85,3 +85,89 @@ const complexSum = calc(
     "*" // 3 * 6 = 18
 )
 console.log("Complex sum", complexSum)
+
+//Funktioner grundläggande värden
+// Kan man ge parametrar värden om den imnte fylls i
+// Sådana parametrar ska altid komma sist
+function calc2(x, y, operator = "+"){
+    //Gör kalkylation
+    console.log(x, y, operator)
+}
+
+// Viktig data bör inte ha grundläggande värde om dem inte måste det
+function greeting2(name, language = "sv"){
+    if(language === "sv"){
+        console.log(`Hej mitt namn är ${name}`)
+    }
+    else if(language === "en"){
+        console.log(`HI my name is ${name}`)
+    }
+    else {
+        console.log("Invalid language code:", language)
+    }
+}
+
+calc2(1,2)
+calc2(1,2, "-")
+
+greeting2("Jonatan")
+greeting2("Jonatan","en")
+greeting2("Jonatan", "de")
+
+// Arrayer bör oftast ha grundläggande värden
+function logFruits(fruits = []){
+    console.log("Fruits:",fruits)
+    console.log("Length", fruits.length)
+    if(fruits.length > 0) {
+        console.log("First fruit:", fruits[0])
+    }
+}
+
+logFruits()
+logFruits([])
+logFruits(['Apple'])
+
+/*
+**Uppdaterad Uppgift: Skapa funktioner med parametrar och villkor**
+
+**Instruktioner:**
+
+1. Skapa en funktion som heter `checkTemperature` som tar en parameter `temperature`.
+2. Funktionen ska använda villkor för att ge feedback baserat på följande gränsvärden:
+    - Om `temperature` är mindre än `0`, ska funktionen returnera `"Too cold"`.
+    - Om `temperature` är större än `100`, ska funktionen returnera `"Too hot"`.
+    - Annars ska funktionen returnera `Normal temperature: ${temperature}`.
+3. Anropa funktionen med olika temperaturvärden och skriv ut resultaten i konsolen.
+
+**Extra Uppgift:**
+
+- Modifiera funktionen så att den tar en **andra valfri parameter** '
+    `isFahrenheit = false` (en boolean som anger om temperaturen är i Fahrenheit). 
+    Om `isFahrenheit` är `true`, **konvertera** temperaturen från Fahrenheit till Celsius 
+    med formeln: Använd sedan de ursprungliga villkoren för att returnera lämplig feedback.
+    Formeln: temperature = (temperature - 32) * 5 / 9;
+*/
+
+function checkTemperature(temperature, isFahrenheit=false){
+    
+    if(isFahrenheit === true){
+        temperature = (temperature - 32) * 5 / 9 // Fahreheit till celcius
+    }
+    if(temperature < 0) {
+        console.log(`Is too cold (${temperature.toFixed(1)})`)
+    }
+    else if(temperature > 100) {
+        console.log(`Is too hot (${temperature.toFixed(1)})`)
+    }
+    else {
+        console.log(`Normal temperature: ${temperature.toFixed(1)}`)
+    }
+}
+
+checkTemperature(-2)
+checkTemperature(20)
+checkTemperature(200)
+
+checkTemperature(104, true)
+checkTemperature(250, true)
+

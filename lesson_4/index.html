@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Funktioner & Loopar</title>
-</head>
-<body>
-    <script src="functions.js"></script>
-</body>
+  </head>
+  <body>
+    <div>
+      <input id="temp" type="number" placeholder="Skriv in temperatur"/>
+      <br />
+      <input id="isF" type="checkbox">
+      Är Fahreheit?
+      <br />
+      <br />
+      <button id="checkTemp" type="button">Kolla temperaturen</button>
+      <hr>
+      <p id="tempString"></p>
+    </div>
+    <!-- <script src="htmlFunctions.js"></script> -->
+    <!-- <script src="functions.js"></script> -->
+    <script>
+        const checkTempButton = document.getElementById("checkTemp")
+        const tempInput = document.getElementById("temp")
+        const isFahrenheitCheckbox = document.getElementById("isF")
+        const tempString = document.getElementById("tempString")
+
+        function checkTemperature2(temperature, isFahrenheit = false) {
+            let message = ""
+            if (isFahrenheit === true) {
+                temperature = ((temperature - 32) * 5) / 9; // Fahreheit till celcius
+            }
+            if (temperature < 0) {
+                message = " ❄️"
+            } else if (temperature > 100) {
+                message = " 🔥"
+            }
+
+            message = `Temp: ${temperature.toFixed(1)}${message}`
+            tempString.textContent = message
+        }
+
+        function onCheckTemp(event){
+            let tempValue = tempInput.value // Kommer altid att retunera en string
+            if(tempValue === ""){
+                tempValue = 0
+            }
+            tempValue = Number(tempValue)
+            console.log("Temp value", tempValue)
+
+            let isFahrenheitValue = isFahrenheitCheckbox.checked
+            console.log("isFahrenheitValue", isFahrenheitValue)
+
+            checkTemperature2(tempValue, isFahrenheitValue)
+        }
+
+        checkTempButton.addEventListener("click", onCheckTemp)
+
+    </script>
+  </body>
 </html>
