@@ -225,3 +225,77 @@ else if(password.includes(" ")){
 else {
     console.log("Password just right")
 }
+
+
+// ! = Not - Inverterar ett värdea
+const isValidPassword = !password.includes(" ")
+console.log("isValidPassword", isValidPassword)
+
+
+// Object
+
+const user = {
+    firstName: "Test",
+    lastName: "Testsson",
+    isAdmin: false,
+    age: 19
+}
+
+console.log("USER", user, `${user.firstName} ${user.lastName}`)
+
+const userFullname = user.firstName + " " + user.lastName
+console.log("Fullname:", userFullname)
+
+console.log("Document", document.body.style)
+console.log("Document", document.getElementById("page-title"))
+
+
+
+//if else if else
+if(user.isAdmin){
+    console.log("User is admin")
+}
+
+// Användare begär adminrättigheter
+if(user.age >= 18){
+    user.isAdmin = true
+}
+else if(user.age <= 12){
+    console.log("Användar kontot låses: Behöver föräldrars tillstånd")
+}
+else {
+    console.log("Användare får inte begära admin rättigheter")
+}
+console.log("USER", user)
+//Object
+
+// 1 Skapa objectet med nycklar
+/*
+    brand: "Audi"
+    modelYear: 2000
+    model: "A3"
+    currentMileage: 8000
+    bigServiceMileage: 6000
+*/
+const car = {
+    brand: "Audi",
+    modelYear: 2000,
+    model: "A3",
+    currentMileage: 8000,
+    bigServiceMileage: 6000
+}
+
+// 2 console.log `You own a {brand} {model} that has been driven for {currentMileage} km`
+console.log(
+    `You own a ${car.brand} ${car.model} that has been driven for ${car.currentMileage} km`
+)
+
+// 3 Om currentMileage är större än bigServiceMileage: console.log "Time for big service"
+if(car.currentMileage > car.bigServiceMileage){
+    console.log("Time for big service")
+    console.log("Preforming big service")
+    car.bigServiceMileage += car.bigServiceMileage
+    console.log(car.bigServiceMileage)
+}
+
+console.log("Car:", car)
