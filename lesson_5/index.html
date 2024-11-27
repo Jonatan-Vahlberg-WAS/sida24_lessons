@@ -30,6 +30,30 @@
     <button id="cta">Click me!</button>
     <script src="main.js"></script>
     <script>
+        /*
+            This script handles form submissions and link clicks on the webpage.
+
+            Variables:
+            - nameEmailForm: The form element for name and email input.
+            - feedbackForm: The form element for feedback input.
+            - link1: The first link element.
+            - link2: The second link element.
+            - cta: The call-to-action button element.
+
+            Functions:
+            - onSubmitNameEmail(event): Handles the submission of the name and email form. Prevents the default form submission and logs the name and email values to the console.
+            - onSubmitFeedback(event): Handles the submission of the feedback form. Prevents the default form submission and logs the feedback value to the console.
+            - onClickLink1(event): Handles the click event on the first link. Prevents the default link action and logs a message to the console.
+            - onClickLink2(event): Handles the click event on the second link. Prevents the default link action and logs a message to the console.
+            - onClickCTA(event): Handles the click event on the call-to-action button. Logs a message to the console.
+
+            Event Listeners:
+            - Adds a submit event listener to the nameEmailForm that triggers onSubmitNameEmail.
+            - Adds a submit event listener to the feedbackForm that triggers onSubmitFeedback.
+            - Adds a click event listener to link1 that triggers onClickLink1.
+            - Adds a click event listener to link2 that triggers onClickLink2.
+            - Adds a click event listener to cta that triggers onClickCTA.  
+        */
         const nameEmailForm = document.getElementById("nameEmailForm")
         const feedbackForm = document.getElementById("feedbackForm")
         const link1 = document.getElementById("link1")
