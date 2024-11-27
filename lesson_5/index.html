@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lektion 5 - repition</title>
+</head>
+<body>
+    <!-- Form for name and email -->
+    <form id="nameEmailForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Form for feedback -->
+    <form id="feedbackForm">
+        <label for="feedback">Feedback:</label><br>
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Send Feedback</button>
+    </form>
+
+    <!-- Links that go nowhere -->
+    <a id="link1" href="#">This is a link that goes nowhere</a><br>
+    <a id="link2" href="#">Another link that goes nowhere</a>
+
+    <!--CTA - Call to action-->
+    <button id="cta">Click me!</button>
+    <script src="main.js"></script>
+    <script>
+        const nameEmailForm = document.getElementById("nameEmailForm")
+        const feedbackForm = document.getElementById("feedbackForm")
+        const link1 = document.getElementById("link1")
+        const link2 = document.getElementById("link2")
+        const cta = document.getElementById("cta")
+
+        function onSubmitNameEmail(event){
+            event.preventDefault()
+            console.log("Name:", nameEmailForm.name.value)
+            console.log("Email:", nameEmailForm.email.value)
+        }
+
+        function onSubmitFeedback(event){
+            event.preventDefault()
+            console.log("Feedback:", feedbackForm.feedback.value)
+        }
+
+        function onClickLink1(event){
+            event.preventDefault()
+            console.log("Link 1 clicked")
+        }
+
+        function onClickLink2(event){
+            event.preventDefault()
+            console.log("Link 2 clicked")
+        }
+
+        function onClickCTA(event){
+            console.log("CTA clicked")
+        }
+
+        nameEmailForm.addEventListener("submit", onSubmitNameEmail)
+        feedbackForm.addEventListener("submit", onSubmitFeedback)
+        link1.addEventListener("click", onClickLink1)
+        link2.addEventListener("click", onClickLink2)
+        cta.addEventListener("click", onClickCTA)
+    </script>
+</body>
+</html>
