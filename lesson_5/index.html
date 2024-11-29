@@ -12,22 +12,40 @@
         <input type="text" id="name" name="name"><br><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email"><br><br>
+        <input type="password" id="password" name="password"><br><br>
         <button type="submit">Submit</button>
     </form>
 
     <!-- Form for feedback -->
     <form id="feedbackForm">
         <label for="feedback">Feedback:</label><br>
-        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br><br>
+        <textarea id="feedback" name="feedback" rows="5" cols="40"></textarea><br><br>
         <button type="submit">Send Feedback</button>
     </form>
 
     <!-- Links that go nowhere -->
-    <a id="link1" href="#">This is a link that goes nowhere</a><br>
-    <a id="link2" href="#">Another link that goes nowhere</a>
+    <a id="link1" href="https://google.se">This is a link that goes nowhere</a><br>
+    <!-- <a id="link2" href="#lorem">Another link that goes down the page</a> -->
+    <a id="link2" href="#lorem">Another link that goes nowhere</a>
 
     <!--CTA - Call to action-->
     <button id="cta">Click me!</button>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sit quos itaque aliquid ipsa eos. Dolores iure iusto nobis dolor, vel cum sequi voluptatibus, ad reprehenderit aliquam quae nulla magni?
+        Ab esse repudiandae ipsam explicabo beatae dignissimos quae recusandae sequi, consequuntur maiores id natus nisi a vitae dolore similique earum dicta necessitatibus voluptatibus. Id, sint. Doloribus voluptates nemo amet ab!
+        Odio rem quas laudantium corrupti ducimus dignissimos saepe repudiandae nemo dicta debitis doloremque esse, aspernatur iusto tempora repellat, asperiores nihil neque! Cum, sequi cupiditate praesentium quidem sit aut eligendi suscipit!
+        Facere maiores, ab, eius molestias alias necessitatibus dolor ipsa suscipit explicabo perferendis ipsum tempora voluptatem saepe minus! Eligendi debitis, voluptate nihil consectetur distinctio necessitatibus doloribus placeat, veniam fuga, eius facilis?
+         animi estue voluptate consequuntur harum hic esse eos modi nemo ratione ut! Nemo nobis dolor quo voluptatum! Reiciendis numquam voluptatum exercitationem dolor voluptatem veniam molestiae, perferendis ad fuga saepe hic nulla?
+        Nobis, explicAdipisci aliquid facere voluptatem ex. Sequi debitis quos, obcaecati facilis pariatur optio veritatis nulla voluptatibus temporibus distinctio quas nam veniam nihil sit nemo doloremque, nesciunt culpa expedita corporis itaque quod?
+        Distinctio ullam labore fugiat inventore impedit recusandae quaerat minus explicabo. Adipisci aut odit, sequi praesentium, impedit minima est veritatis facere quod reprehenderit modi vitae nesciunt, dignissimos non nisi necessitatibus dolor!
+        Tempore facilis rem dolorum repudiandae mollitia? Rerum cumque fuga, iusto aspernatur possimus dolor ad ducimus, eaque eligendi, laboriosam expedita odio ea exercitationem neque! Cum amet in quam recusandae, ad incidunt.
+        Commodi ipsa, saepe reprehenderit doloribus, repellendus iste minima minus illo alias nisi, porro facere. Ullam minus assumenda sit totam officia repellendus voluptates voluptas id, sapiente necessitatibus est, doloribus sunt blanditiis?
+        Eligendi, debitis harum cumque officia modi similique! Reiciendis nulla adipisci consectetur recusandae nihil ratione illo reprehenderit corporis commodi error dicta debitis, dolore aliquam nostrum facere minima rem deserunt voluptatem delectus?
+        Totam rerum atqu  Ducimus excepturi quidem consequatur animi, tenetur vero id voluptatibus impedit blanditiis facilis neque, delectus esse iusto optio minus magni at cupiditate ratione, velit nihil quis architecto sint placeat fuga! Asperiores!
+        At ex, o Rem architecto amet reiciendis aliquid assumenda? Natus molestiae, veniam totam, nam dignissimos id rerum nostrum sunt porro culpa sint architecto adipisci, est praesentium assumenda iste. Quis aspernatur a incidunt quidem.
+        <span id="lorem"></span>
+        <a href="#email">Back to top</a>
+    </p>
     <script src="main.js"></script>
     <script>
         /*
@@ -59,11 +77,13 @@
         const link1 = document.getElementById("link1")
         const link2 = document.getElementById("link2")
         const cta = document.getElementById("cta")
+        const password = document.getElementById("password")
 
         function onSubmitNameEmail(event){
             event.preventDefault()
             console.log("Name:", nameEmailForm.name.value)
             console.log("Email:", nameEmailForm.email.value)
+            console.log("Submitted at:", new Date())
         }
 
         function onSubmitFeedback(event){
@@ -77,7 +97,7 @@
         }
 
         function onClickLink2(event){
-            event.preventDefault()
+            // event.preventDefault()
             console.log("Link 2 clicked")
         }
 
@@ -90,6 +110,11 @@
         link1.addEventListener("click", onClickLink1)
         link2.addEventListener("click", onClickLink2)
         cta.addEventListener("click", onClickCTA)
+
+        //Password listener
+        password.addEventListener("input", function(event){
+            console.log("Password", password.value)
+        })
     </script>
 </body>
 </html>
