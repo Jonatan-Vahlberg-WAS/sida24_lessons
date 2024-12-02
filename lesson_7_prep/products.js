@@ -1,9 +1,10 @@
 // Product HTML template
-const createProductTemplate = (name, price, imageUrl) => `
+const createProductTemplate = (id, name, price, imageUrl) => `
     <img src="${imageUrl}" alt="${name}" />
     <h2>${name}</h2>
     <p>Price: ${price}</p>
     <button>Add to cart</button>
+    <a href=${`/lesson_7_prep/product.html?name=${id}`}>View product</a>
 `;
 
 // Payment information form HTML template
@@ -32,6 +33,7 @@ const cartTemplate = `
 
 const products  = Array.from({length: 10}, (v, i) => {
     return {
+        id: i,
         name: `Product ${i + 1}`,
         price: Math.floor(Math.random() * 100),
         imageUrl: `https://picsum.photos/seed/${i}/150/150`
@@ -46,7 +48,7 @@ const cart = []
 const productsElement = document.getElementById("products")
 products.forEach(product => {
     const productElement = document.createElement("div")
-    productElement.innerHTML = createProductTemplate(product.name, product.price, product.imageUrl)
+    productElement.innerHTML = createProductTemplate(product.id, product.name, product.price, product.imageUrl)
     productElement.querySelector("button").addEventListener("click", () => {
         cart.push(product)
         renderCart()
